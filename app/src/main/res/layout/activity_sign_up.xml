@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:outlineAmbientShadowColor="#E3D4D4"
+    android:outlineSpotShadowColor="#F3E6E6"
+    tools:context=".SignInActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="164dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextEmailSignUp"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="70dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/editTextNicknameSignUp"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Nickname"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSignUp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password2"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:boxStrokeColor="#764BC4"
+        app:hintTextColor="#764BC4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNicknameSignUp"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/editTextPasswordSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:shadowColor="#FFFFFF"
+            android:textColor="@color/colorBlack"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="@color/colorBlack"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@null"
+            app:layout_constraintHorizontal_bias="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signUpButtonSignUp"
+        android:layout_width="203dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="196dp"
+        android:background="@color/colorPrimary"
+        android:text="sıgn Up"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_password" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="40dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpButtonSignUp" />
+
+    <TextView
+        android:id="@+id/haveAnAccount"
+        android:layout_width="241dp"
+        android:layout_height="25dp"
+        android:text="Already have an account? Sign in."
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.175" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
