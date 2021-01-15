@@ -168,6 +168,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         if(uid.equals(myUid)){
             //add items in menu
             popupMenu.getMenu().add(Menu.NONE,0,0,"Delete");
+            popupMenu.getMenu().add(Menu.NONE,1,0,"Edit");
         }
 
         //item click listener
@@ -178,6 +179,15 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                 if(id ==0){
                     //delete is clicked
                     beginDelete(pId, pImage);
+                }else if(id==1){
+                    //Edit is clicked
+                    //start AddPostActivity with key "editPost"
+                    Intent intent = new Intent(context,AddPostActivity.class);
+                    intent.putExtra("key","editPost");
+                    intent.putExtra("editPostId",pId);
+                    context.startActivity(intent);
+
+
                 }
                 return false;
             }
