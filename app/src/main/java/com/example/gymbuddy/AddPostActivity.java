@@ -218,6 +218,7 @@ public class AddPostActivity extends AppCompatActivity {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid",uid);
         hashMap.put("uName",name);
+        hashMap.put("pLikes","0");
         hashMap.put("uEmail",email);
         hashMap.put("uDp",dp);
         hashMap.put("pTitle",title);
@@ -270,6 +271,7 @@ public class AddPostActivity extends AppCompatActivity {
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("uid",uid);
                             hashMap.put("uName",name);
+                            hashMap.put("pLikes","0");
                             hashMap.put("uEmail",email);
                             hashMap.put("uDp",dp);
                             hashMap.put("pTitle",title);
@@ -340,6 +342,7 @@ public class AddPostActivity extends AppCompatActivity {
                                             HashMap<String, Object> hashMap = new HashMap<>();
                                             hashMap.put("uid",uid);
                                             hashMap.put("uName",name);
+                                            hashMap.put("pLikes","0");
                                             hashMap.put("uEmail",email);
                                             hashMap.put("uDp",dp);
                                             hashMap.put("pTitle",title);
@@ -459,6 +462,7 @@ public class AddPostActivity extends AppCompatActivity {
                                         hashMap.put("uid",uid);
                                         hashMap.put("uName",name);
                                         hashMap.put("uEmail",email);
+                                        hashMap.put("pLikes","0");
                                         hashMap.put("uDp",dp);
                                         hashMap.put("pId",timestamp);
                                         hashMap.put("pTitle",title);
@@ -526,6 +530,7 @@ public class AddPostActivity extends AppCompatActivity {
             hashMap.put("uid",uid);
             hashMap.put("uName",name);
             hashMap.put("uEmail",email);
+            hashMap.put("pLikes","0");
             hashMap.put("uDp",dp);
             hashMap.put("pId",timestamp);
             hashMap.put("pTitle",title);
