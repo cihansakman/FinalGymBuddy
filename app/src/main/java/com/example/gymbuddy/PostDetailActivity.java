@@ -444,7 +444,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
                     String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
 
-                    //set data
+                    //set dataa
                     pTitleTv.setText(pTitle);
                     pDescriptionTv.setText(pDescr);
                     pLikesTv.setText(pLikes+"Likes");
