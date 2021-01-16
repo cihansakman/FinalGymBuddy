@@ -3,6 +3,8 @@ package com.example.gymbuddy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -37,8 +39,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 public class PostDetailActivity extends AppCompatActivity {
@@ -60,6 +64,10 @@ public class PostDetailActivity extends AppCompatActivity {
     ImageButton moreBtn;
     Button likeBtn, shareBtn;
     LinearLayout profileLayout;
+    RecyclerView recyclerView;
+
+    List<ModelComment>commentList;
+    AdapterComments adapterComments;
 
 
     //add comment views
@@ -95,6 +103,7 @@ public class PostDetailActivity extends AppCompatActivity {
         likeBtn = findViewById(R.id.likeBtn);
         shareBtn = findViewById(R.id.shareBtn);
         profileLayout = findViewById(R.id.profileLayout);
+        recyclerView = findViewById(R.id.recyclerView);
 
         commentEt = findViewById(R.id.commentEt);
         sendBtn = findViewById(R.id.sendBtn);
@@ -112,6 +121,8 @@ public class PostDetailActivity extends AppCompatActivity {
 
         //set subtitle
         actionBar.setSubtitle("SignedIn as: "+myEmail);
+
+        loadComments();
 
         //send comment button click
         sendBtn.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +144,39 @@ public class PostDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 showMoreOptions();
 
+
+            }
+        });
+    }
+
+    private void loadComments() {
+        //layout for recycler view
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        //set layout to recy
+        recyclerView.setLayoutManager(layoutManager);
+
+        //init
+        commentList = new ArrayList<>();
+        //path of the post to get coment
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts").child(postId).child("Comments");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                commentList.clear();
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    ModelComment modelComment = ds.getValue(ModelComment.class);
+
+                    commentList.add(modelComment);
+
+                    //setup adapter
+                    adapterComments = new AdapterComments(getApplicationContext(),commentList);
+                    //set adapter
+                    recyclerView.setAdapter(adapterComments);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
