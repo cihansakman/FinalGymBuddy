@@ -84,6 +84,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         final String pImage = postList.get(i).getpImage();
         String pTimeStamp = postList.get(i).getpTime();
         String pLikes = postList.get(i).getpLikes();//contains total likes a post
+        String pComments = postList.get(i).getpComments();//contains total likes a post
 
 
         //convert timestamp to dd/mm/yyyy hh:mm aa
@@ -97,6 +98,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         myHolder.pTitleTv.setText(pTitle);
         myHolder.pDescriptionTv.setText(pDescription);
         myHolder.pLikesTv.setText(pLikes+" Likes");//eg. 10 likes
+        myHolder.pCommentsTv.setText(pComments+" Comments");//eg. 10 likes
         //set likes for each post
         setLikes(myHolder, pId);
         
@@ -177,8 +179,11 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         myHolder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //will implement later.
-                Toast.makeText(context,"Comment",Toast.LENGTH_SHORT).show();
+                //start postDetailAct
+                Intent intent = new Intent(context, PostDetailActivity.class);
+                intent.putExtra("postId",pId);//will get detail of post using id of post
+                context.startActivity(intent);
+
             }
         });
 
@@ -239,6 +244,8 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             popupMenu.getMenu().add(Menu.NONE,0,0,"Delete");
             popupMenu.getMenu().add(Menu.NONE,1,0,"Edit");
         }
+        popupMenu.getMenu().add(Menu.NONE,2,0,"View Detail");
+
 
         //item click listener
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -256,6 +263,12 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                     intent.putExtra("editPostId",pId);
                     context.startActivity(intent);
 
+                }
+                else if (id==2){
+                    //start postdetailact
+                    Intent intent = new Intent(context, PostDetailActivity.class);
+                    intent.putExtra("postId",pId);//will get detail of post using id of post
+                    context.startActivity(intent);
 
                 }
                 return false;
@@ -365,7 +378,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
 
         //views from row_post.htm
         ImageView uPictureTv, pImageIv;
-        TextView uNameTv, pTimeTv, pTitleTv, pDescriptionTv, pLikesTv;
+        TextView uNameTv, pTimeTv, pTitleTv, pDescriptionTv, pLikesTv, pCommentsTv;
         ImageButton moreBtn;
         Button likeBtn, commentBtn, shareBtn;
         LinearLayout profileLayout;
@@ -380,6 +393,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             pTitleTv = itemView.findViewById(R.id.pTitleTv);
             pDescriptionTv = itemView.findViewById(R.id.pDescriptionTv);
             pLikesTv = itemView.findViewById(R.id.pLikesTv);
+            pCommentsTv = itemView.findViewById(R.id.pCommentsTv);
             moreBtn = itemView.findViewById(R.id.moreBtn);
             likeBtn = itemView.findViewById(R.id.likeBtn);
             commentBtn = itemView.findViewById(R.id.commentBtn);
