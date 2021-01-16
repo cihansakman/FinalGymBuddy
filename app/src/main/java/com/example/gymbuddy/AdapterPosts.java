@@ -144,6 +144,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                 //get total num of likes, if currently user signed in has not liked it before
                 //increase value by 1, otherwise decrease by 1
                 final int pLikes = Integer.parseInt(postList.get(i).getpLikes());
+                mProcessLike = true;
                 //get id of the post
                 final String postIde = postList.get(i).getpId();
                 likesRef.addValueEventListener(new ValueEventListener() {
