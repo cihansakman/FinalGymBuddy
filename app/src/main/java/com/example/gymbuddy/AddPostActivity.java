@@ -520,12 +520,8 @@ public class AddPostActivity extends AppCompatActivity {
                             //failed uploading image
                             pd.dismiss();
                             Toast.makeText(AddPostActivity.this,""+e.getMessage(),Toast.LENGTH_LONG).show();
-
-
                         }
             });
-
-
 
         }else{
             //post without image

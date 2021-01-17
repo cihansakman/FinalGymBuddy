@@ -1,6 +1,8 @@
 package com.example.gymbuddy;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
@@ -22,10 +29,13 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
 
     Context context;
     List<ModelComment>commentList;
+    String myUid, postId;
 
-    public AdapterComments(Context context, List<ModelComment> commentList) {
+    public AdapterComments(Context context, List<ModelComment> commentList, String myUid, String postId) {
         this.context = context;
         this.commentList = commentList;
+        this.myUid = myUid;
+        this.postId = postId;
     }
 
     @NonNull
@@ -40,11 +50,11 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         //get data
-        String uid = commentList.get(position).getUid();
+        final String uid = commentList.get(position).getUid();
         String name = commentList.get(position).getuName();
         String email = commentList.get(position).getuEmail();
         String image = commentList.get(position).getuDp();
-        String cid = commentList.get(position).getcId();
+        final String cid = commentList.get(position).getcId();
         String comment = commentList.get(position).getComment();
         String timestamp = commentList.get(position).getTimeStamp();
 
@@ -63,8 +73,65 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
             Picasso.get().load(image).placeholder(R.drawable.ic_image_person).into(holder.avatarIv);
 
         }catch (Exception e){
-
         }
+
+        //comment click listener
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //check user is signed in or not
+                if(myUid.equals(uid)){
+                    //my comment
+                    //show delete dialog
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                    builder.setTitle("Delete");
+                    builder.setMessage("Are you sure delete this comment?");
+                    builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //delete comment
+                            deleteComment(cid);
+
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //dismiss dialog
+                            dialogInterface.dismiss();
+
+                        }
+                    });
+                    //show dialog
+                    builder.create().show();
+
+                }else{
+                    //not my comment
+                    Toast.makeText(context,"Can't delete other's comment...",Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+    }
+
+    private void deleteComment(String cid) {
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Posts").child(postId);
+         ref.child("Comments").child(cid).removeValue(); //will delete the comment
+
+        //now update the comments count
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String comments = ""+snapshot.child("pComments").getValue();
+                int newCommentVal = Integer.parseInt(comments) - 1;
+                ref.child("pComments").setValue(""+newCommentVal);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
