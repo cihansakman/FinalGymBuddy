@@ -433,13 +433,13 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void loadUserInfo() {
         //get current user indo
-        Query myRef = FirebaseDatabase.getInstance().getReference("Users");
+        Query myRef = FirebaseDatabase.getInstance().getReference("UserInfos");
         myRef.orderByChild("uid").equalTo(myUid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     myName = ""+ds.child("name").getValue();
-                    myDp = ""+ds.child("image").getValue();
+                    myDp = ""+ds.child("profilepic").getValue();
 
                     //set data
                     try {
@@ -520,10 +520,10 @@ public class PostDetailActivity extends AppCompatActivity {
 
                     //set user image in comment
                     try {
-                        Picasso.get().load(hisDp).placeholder(R.drawable.ic_image_person).into(uPictureIv);
+                        Picasso.get().load(hisDp).placeholder(R.drawable.ic_image_person).into(cAvatarIv);
 
                     }catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_image_person).into(uPictureIv);
+                        Picasso.get().load(R.drawable.ic_image_person).into(cAvatarIv);
 
                     }
 

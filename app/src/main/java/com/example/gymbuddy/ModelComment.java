@@ -3,15 +3,15 @@ package com.example.gymbuddy;
 
 
 public class ModelComment {
-    String cId, comment, timestamp, uid, uEmail, uDp,uName;
+    String cId, comment, timeStamp, uid, uEmail, uDp,uName;
 
 
     public ModelComment() {}
 
-    public ModelComment(String cId, String comment, String timestamp, String uid, String uEmail, String uDp, String uName) {
+    public ModelComment(String cId, String comment, String timeStamp, String uid, String uEmail, String uDp, String uName) {
         this.cId = cId;
         this.comment = comment;
-        this.timestamp = timestamp;
+        this.timeStamp = timeStamp;
         this.uid = uid;
         this.uEmail = uEmail;
         this.uDp = uDp;
@@ -34,12 +34,12 @@ public class ModelComment {
         this.comment = comment;
     }
 
-    public String getTimestamp() {
-        return timestamp;
+    public String getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public String getUid() {

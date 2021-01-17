@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,12 +46,13 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
         String image = commentList.get(position).getuDp();
         String cid = commentList.get(position).getcId();
         String comment = commentList.get(position).getComment();
-        String timestamp = commentList.get(position).getTimestamp();
+        String timestamp = commentList.get(position).getTimeStamp();
 
         //convert timestamp to dd/mm/yyyy hh:mm aa
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(timestamp));
         String pTime = DateFormat.format("dd/MM/yyyy hh:mm aa",calendar).toString();
+
 
         //set data
         holder.nameTv.setText(name);
