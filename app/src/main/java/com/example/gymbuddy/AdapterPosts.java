@@ -226,6 +226,16 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             }
         });
 
+        //click like count to start postlikedby activity and pass the post id
+        myHolder.pLikesTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,PostLikedByActivity.class);
+                intent.putExtra("postId",pId);
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 

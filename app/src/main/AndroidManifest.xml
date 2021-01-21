@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".PostDetailActivity"></activity>
+        <activity android:name=".PostLikedByActivity"></activity>
+        <activity android:name=".PostDetailActivity" />
 
         <uses-library
             android:name="com.google.android.wearable"
@@ -30,9 +30,9 @@
 
         <activity
             android:name=".ThereProfileActivity"
-            android:label="@string/title_activity_there_profile"></activity>
+            android:label="@string/title_activity_there_profile" />
         <activity android:name=".AddPostActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".SignInActivity">
@@ -41,18 +41,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- define file provider-->
+        </activity> <!-- define file provider -->
         <provider
-            android:authorities="com.example.gymbuddy.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.gymbuddy.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
-               android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/paths"
-                ></meta-data>
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
         </provider>
     </application>
 
