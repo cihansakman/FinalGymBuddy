@@ -60,7 +60,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         String notification =model.getNotification();
         String image =model.getsImage();
         final String timestamp =model.getTimestamp();
-        String senderUid = model.getpUid();
+        String senderUid = model.getsUid();
         final String pId = model.getpId();
 
         //convert timestamp to dd/mm/yyyy hh:mm aa

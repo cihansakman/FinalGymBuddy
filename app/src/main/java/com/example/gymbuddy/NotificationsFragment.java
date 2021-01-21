@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -44,6 +45,10 @@ public class NotificationsFragment extends Fragment {
         //init recyclerview
         notificationsRv = view.findViewById(R.id.notificationsRv);
 
+        notificationsRv.setHasFixedSize(true);
+        notificationsRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
         firebaseAuth = FirebaseAuth.getInstance();
         
         getAllNotifications();
@@ -54,7 +59,7 @@ public class NotificationsFragment extends Fragment {
     private void getAllNotifications() {
         notificationsList = new ArrayList<>();
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserInfos");
         ref.child(firebaseAuth.getUid()).child("Notifications")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
