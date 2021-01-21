@@ -175,6 +175,34 @@ public class PostDetailActivity extends AppCompatActivity {
         });
     }
 
+    private void addToHisNotifications(String hisUid,String pId, String notification){
+        String timestamp = ""+System.currentTimeMillis();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+        hashMap.put("pId",pId);
+        hashMap.put("timestamp",timestamp);
+        hashMap.put("pUid",hisUid);
+        hashMap.put("notification", notification);
+        hashMap.put("sUid",myUid);
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserInfos");
+        ref.child(hisUid).child("Notifications").child(timestamp).setValue(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //added succesfully
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //failed
+
+                    }
+                });
+    }
+
     private void shareTextOnly(String pTitle, String pDescription) {
         //concatenate title and desc
         String shareBody  = pTitle + "\n"+pDescription;
@@ -432,6 +460,8 @@ public class PostDetailActivity extends AppCompatActivity {
                         likesRef.child(postId).child(myUid).setValue("Liked");//set any value
                         mProcessLike = false;
 
+                        addToHisNotifications(""+hisUid,""+postId,"Liked Your Post");
+
 
                     }
                 }
@@ -480,6 +510,8 @@ public class PostDetailActivity extends AppCompatActivity {
                         Toast.makeText(PostDetailActivity.this,"Comment added...",Toast.LENGTH_SHORT).show();
                         commentEt.setText("");
                         updateCommentCount();
+
+                        addToHisNotifications(""+hisUid,""+postId,"Commented On Your Post");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

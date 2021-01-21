@@ -43,6 +43,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Queue;
@@ -170,6 +171,8 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                                 postsRef.child(postIde).child("pLikes").setValue(""+(pLikes+1));
                                 likesRef.child(postIde).child(myUid).setValue("Liked");//set any value
                                 mProcessLike = false;
+
+                                addToHisNotifications(""+uid,""+pId,"Liked Your Post");
                             }
                         }
                     }
@@ -224,6 +227,34 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         });
 
 
+    }
+
+    private void addToHisNotifications(String hisUid,String pId, String notification){
+        String timestamp = ""+System.currentTimeMillis();
+
+        HashMap<Object, String> hashMap = new HashMap<>();
+        hashMap.put("pId",pId);
+        hashMap.put("timestamp",timestamp);
+        hashMap.put("pUid",hisUid);
+        hashMap.put("notification", notification);
+        hashMap.put("sUid",myUid);
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("UserInfos");
+        ref.child(hisUid).child("Notifications").child(timestamp).setValue(hashMap)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //added succesfully
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //failed
+
+                    }
+                });
     }
 
     private void shareTextOnly(String pTitle, String pDescription) {
