@@ -7,9 +7,9 @@
     tools:context=".PostDetailActivity">
 
     <androidx.core.widget.NestedScrollView
-        android:layout_above="@id/commentsLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/commentsLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -17,15 +17,15 @@
             android:orientation="vertical">
 
             <!--actual post-->
-            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp"
-                app:contentPadding="5dp"
                 app:cardUseCompatPadding="true"
-                app:cardBackgroundColor="@color/colorWhite">
+                app:contentPadding="5dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -35,21 +35,21 @@
                         android:id="@+id/profileLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <com.blogspot.atifsoftwares.circularimageview.CircularImageView
                             android:id="@+id/uPictureIv"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ic_image_person"
                             android:layout_width="50dp"
-                            android:layout_height="50dp"></com.blogspot.atifsoftwares.circularimageview.CircularImageView>
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_image_person"></com.blogspot.atifsoftwares.circularimageview.CircularImageView>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/uNameTv"
@@ -58,11 +58,12 @@
                                 android:text="Name"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20sp"></TextView>
+
                             <TextView
                                 android:id="@+id/pTimeTv"
-                                android:text="33 min"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"></TextView>
+                                android:layout_height="wrap_content"
+                                android:text="33 min"></TextView>
 
                         </LinearLayout>
 
@@ -79,79 +80,83 @@
                         android:id="@+id/pTitleTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:autoLink="all"
                         android:text="Title"
-                        android:autoLink="all"></TextView>
+                        android:textSize="16sp"
+                        android:textStyle="bold"></TextView>
 
                     <ImageView
                         android:id="@+id/pImageIv"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:background="@color/colorWhite"></ImageView>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
                             android:id="@+id/pLikesTv"
-                            android:text="1k Likes"
-                            android:layout_weight="1"
-                            android:textColor="@color/colorPrimary"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"></TextView>
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1k Likes"
+                            android:textColor="@color/colorPrimary"></TextView>
+
                         <TextView
                             android:id="@+id/pCommentsTv"
-                            android:text="1k Comments"
-                            android:layout_weight="1"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/colorPrimary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="end"/>
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="1k Comments"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/colorPrimary" />
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/pDescriptionTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlack"
+                        android:autoLink="all"
                         android:text="Description"
-                        android:autoLink="all"></TextView>
+                        android:textColor="@color/colorBlack"></TextView>
 
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#F5F0F0"></View>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
                         <Button
                             android:id="@+id/likeBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="LIKE"
-                            android:drawableLeft="@drawable/ic_like_black"
-                            android:drawablePadding="5dp"
                             android:background="@color/colorWhite"
                             android:drawableStart="@drawable/ic_like_black"
-                            ></Button>
+                            android:drawableLeft="@drawable/ic_like_black"
+                            android:drawablePadding="5dp"
+                            android:text="LIKE"></Button>
 
                         <Button
                             android:id="@+id/shareBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="SHARE"
+                            android:background="@color/colorWhite"
+                            android:drawableStart="@drawable/ic_share_black"
                             android:drawableLeft="@drawable/ic_share_black"
                             android:drawablePadding="5dp"
-                            android:background="@color/colorWhite"
-                            android:drawableStart="@drawable/ic_share_black"></Button>
+                            android:text="SHARE"></Button>
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#F5F0F0"></View>
 
 
                 </LinearLayout>
@@ -159,18 +164,19 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:text="Comments"
-                android:textColor="@color/colorBlack"
-                android:drawablePadding="5dp"
-                android:padding="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_comments_black"
                 android:drawableLeft="@drawable/ic_comments_black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:drawablePadding="5dp"
+                android:padding="2dp"
+                android:text="Comments"
+                android:textColor="@color/colorBlack" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -182,37 +188,37 @@
         android:layout_alignParentBottom="true">
 
         <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:id="@+id/cAvatarIv"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/cAvatarIv"
-            android:src="@drawable/ic_image_person"/>
+            android:src="@drawable/ic_image_person" />
 
 
         <EditText
             android:id="@+id/commentEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_margin="1dp"
-            android:layout_toEndOf="@+id/cAvatarIv"
             android:layout_toStartOf="@+id/sendBtn"
+            android:layout_toLeftOf="@+id/sendBtn"
+            android:layout_toEndOf="@+id/cAvatarIv"
+            android:layout_toRightOf="@+id/cAvatarIv"
             android:background="@color/colorWhite"
-            android:padding="10dp"
             android:hint="Enter comment..."
             android:inputType="textCapSentences|textMultiLine"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/cAvatarIv"
-            android:layout_toLeftOf="@+id/sendBtn"/>
+            android:padding="10dp" />
 
 
         <ImageButton
+            android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/sendBtn"
             android:layout_alignParentEnd="true"
-            android:background="@color/colorWhite"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_send"/>
+            android:background="@color/colorWhite"
+            android:src="@drawable/ic_send" />
 
 
     </RelativeLayout>
