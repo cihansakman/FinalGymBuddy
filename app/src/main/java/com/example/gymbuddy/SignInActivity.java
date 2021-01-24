@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+//author : Mehmet Cihan Sakman
 
 public class SignInActivity extends AppCompatActivity {
 

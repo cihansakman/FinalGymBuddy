@@ -3,6 +3,7 @@ package com.example.gymbuddy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+//author : Mehmet Cihan Sakman
 
 public class HomePageActivity extends AppCompatActivity {
 

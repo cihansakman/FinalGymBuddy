@@ -1,4 +1,5 @@
 package com.example.gymbuddy;
+//author : Osman Batuhan Şahin
 
 public class ModelNotification {
     String pId, timestamp, pUid, notification, sUid, sName, sEmail, sImage;

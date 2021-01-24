@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
-
+//author : Osman Batuhan Şahin
 public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHolder>{
 
     Context context;

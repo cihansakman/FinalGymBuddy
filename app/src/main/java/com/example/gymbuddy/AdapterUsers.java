@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
+//author : Osman Batuhan Şahin
 public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder>{
 
     Context context;

@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
-
+//author : Osman Batuhan ŞAhin
 public class AdapterNotification extends RecyclerView.Adapter<AdapterNotification.HolderNotification>{
     private Context context;
     private ArrayList<ModelNotification> notificationsList;

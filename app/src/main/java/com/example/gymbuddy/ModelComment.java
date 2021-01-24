@@ -1,6 +1,6 @@
 package com.example.gymbuddy;
 
-
+//author : Osman Batuhan Şahin
 
 public class ModelComment {
     String cId, comment, timeStamp, uid, uEmail, uDp,uName;

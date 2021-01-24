@@ -47,6 +47,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
+//author : Mehmet Cihan Sakman
 
 public class AddPostActivity extends AppCompatActivity {
     ActionBar actionBar;
@@ -202,7 +203,7 @@ public class AddPostActivity extends AppCompatActivity {
         //was with image
         updateWasWithImage(title, description, editPostId);
 
-    }else if(imageIv.getDrawable() != null){
+    }else if(imageIv.getDrawable() == null){
         //was without image, but now has image in imageView
         updateWithNowImage(title, description, editPostId);
 
@@ -435,7 +436,7 @@ public class AddPostActivity extends AppCompatActivity {
         final String timestamp = String.valueOf(System.currentTimeMillis());
         String filePathAndName = "Posts/" + "post_" + timestamp;
 
-        if(imageIv.getDrawable() != null){
+        if(imageIv.getDrawable() == null){
             //get image from imageView
             Bitmap bitmap = ((BitmapDrawable)imageIv.getDrawable()).getBitmap();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();

@@ -26,6 +26,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
+//author : Mehmet Cihan Sakman
 
 public class SignUpActivity extends AppCompatActivity {
 

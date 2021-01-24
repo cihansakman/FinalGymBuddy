@@ -1,4 +1,5 @@
 package com.example.gymbuddy;
+//author : Mehmet Cihan Sakman
 
 public class ModelPost {
     //use name as we given while uploading post

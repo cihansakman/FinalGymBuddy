@@ -50,6 +50,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+//author : Mehmet Cihan Sakman
 
 public class PostDetailActivity extends AppCompatActivity {
 
@@ -567,7 +568,7 @@ public class PostDetailActivity extends AppCompatActivity {
                     //set data
                     try {
                         //if image is received
-                        Picasso.get().load(myDp).placeholder(R.drawable.ic_image_person).into(uPictureIv);
+                        Picasso.get().load(hisDp).placeholder(R.drawable.ic_image_person).into(uPictureIv);
 
                     }catch (Exception e){
                         Picasso.get().load(R.drawable.ic_image_person).into(uPictureIv);
@@ -643,7 +644,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
                     //set user image in comment
                     try {
-                        Picasso.get().load(hisDp).placeholder(R.drawable.ic_image_person).into(cAvatarIv);
+                        Picasso.get().load(myDp).placeholder(R.drawable.ic_image_person).into(cAvatarIv);
 
                     }catch (Exception e){
                         Picasso.get().load(R.drawable.ic_image_person).into(cAvatarIv);

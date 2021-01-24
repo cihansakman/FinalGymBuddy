@@ -1,4 +1,5 @@
 package com.example.gymbuddy;
+//author : Osman Batuhan Şahin
 
 public class ModelUsers {
 

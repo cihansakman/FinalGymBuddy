@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+//author : Osman Batuhan Şahin
 
 public class DashboardActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;

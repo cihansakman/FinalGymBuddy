@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+//author : Mehmet Cihan Sakman
 
 public class ThereProfileActivity extends AppCompatActivity {
 

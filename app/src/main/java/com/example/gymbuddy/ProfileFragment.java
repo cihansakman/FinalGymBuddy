@@ -66,6 +66,8 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.firebase.storage.FirebaseStorage.getInstance;
+//author : Osman Batuhan Şahin
+
 public class ProfileFragment extends Fragment {
 
     //firebase
