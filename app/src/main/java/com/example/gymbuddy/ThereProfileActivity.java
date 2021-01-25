@@ -89,7 +89,7 @@ public class ThereProfileActivity extends AppCompatActivity {
                     bioTV.setText(bio);
                     try {
                         //if image is received then set
-                        Picasso.get().load(image).into(avatarIV);
+                        Picasso.get().load(image).placeholder(R.drawable.ic_image_person).into(avatarIV);
                     }
                     catch (Exception e){
                         //set default

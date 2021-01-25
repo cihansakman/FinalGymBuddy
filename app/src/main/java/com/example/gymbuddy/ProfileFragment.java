@@ -680,7 +680,7 @@ public class ProfileFragment extends Fragment {
 
                                     try {
                                         //if image is received then set
-                                        Picasso.get().load(downloadUri).into(avatarIV);
+                                        Picasso.get().load(downloadUri).placeholder(R.drawable.ic_image_person).into(avatarIV);
                                     }
                                     catch (Exception e){
                                         //set default
