@@ -56,7 +56,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
     //to get detail of user and post
     String  hisUid, myUid, myEmail, myName, myDp,
-    postId, pLikes, hisDp, hisName, pImage;
+            postId, pLikes, hisDp, hisName, pImage;
 
     boolean mProcessComment = false;
     boolean mProcessLike = false;
@@ -530,7 +530,7 @@ public class PostDetailActivity extends AppCompatActivity {
                         //failed
                         pd.dismiss();
                         Toast.makeText(PostDetailActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
-                        
+
                     }
                 });
     }

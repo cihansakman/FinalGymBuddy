@@ -164,7 +164,7 @@ public class ProfileFragment extends Fragment {
                     bioTV.setText(bio);
                     try {
                         //if image is received then set
-                        Picasso.get().load(image).placeholder(R.drawable.ic_add_image).into(avatarIV);
+                        Picasso.get().load(image).into(avatarIV);
                     }
                     catch (Exception e){
                         //set default
